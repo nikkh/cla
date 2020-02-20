@@ -76,4 +76,4 @@ echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo   Important Note!
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo "This script ran with the APPLICATION_NAME_ROOT environment variable set to $APPLICATION_NAME_ROOT."
-echo -e "${RED}PLEASE{NC} ensure that the yaml workflows for deploying your application use the same variable setting!"
+echo -e "${RED}PLEASE${NC} ensure that the yaml workflows for deploying your application use the same variable setting!"
