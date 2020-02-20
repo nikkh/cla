@@ -1,7 +1,7 @@
 on:
   push:
     paths:
-    - global/trigger_infra.md
+    - trigger_infra.md
  
 name: Deploy Infrastructure
 env:
