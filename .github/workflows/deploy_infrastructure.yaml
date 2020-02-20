@@ -1,0 +1,39 @@
+on:
+  push:
+    paths:
+    - trigger_infra.md
+ 
+name: Deploy Infrastructure
+env:
+  B2C_INSTANCE: https://livestocklimitedb2c.b2clogin.com
+  B2C_WEB_CLIENTID: ${{ secrets.B2C_WEB_CLIENTID }}
+  B2C_API_CLIENTID: ${{ secrets.B2C_API_CLIENTID }}
+  B2C_WEB_CLIENTSECRET:  ${{ secrets.B2C_WEB_CLIENTSECRET }}
+  B2C_DOMAIN: livestocklimitedb2c.onmicrosoft.com
+  B2C_SIGNEDOUT_CALLBACK_PATH: /signout/B2C_1_signupsignin1
+  B2C_SIGNUPSIGNIN_POLICYID: B2C_1_signupsignin1
+  B2C_RESETPASSWORD_POLICYID: B2C_1_passwordreset1
+  B2C_EDITPROFILE_POLICYID: B2C_1_profileediting1
+  B2C_CALLBACK_PATH: /signin/B2C_1_signupsignin1
+
+  TODO_SCOPE: https://livestocklimitedb2c.onmicrosoft.com/claapi/demo.read
+  APPLICATION_NAME_ROOT: nhcla
+  LOCATION: uksouth
+  
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+                    
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+   
+      - name: Run Deployment Scripts
+        run: |
+                chmod +x deployment_scripts/deploy_infrastructure.sh
+                deployment_scripts/deploy_infrastructure.sh
+                

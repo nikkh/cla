@@ -1,0 +1,44 @@
+# This workflow will deploy the front end component of the application.
+# To get this workflow to trigger you need to edit one of the files in the Sirmione-Web project.
+# to change the name of the resource edit the ALIAS below
+
+on:
+  push:
+    paths:
+    - TodoListService/**
+
+name: Deploy_Api
+env:
+   APPLICATION_NAME_ROOT: nhcla
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v2
+
+    - name: Setup .NET Core 3.1.101
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+        
+    - name: Build Application
+      run: dotnet build TodoListService/TodoListService.csproj --configuration Debug
+
+    - name: Publish Application
+      run: |
+        dotnet publish TodoListService/TodoListService.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp 
+        
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+   
+    - name: 'Deploy Api Application'
+      uses: azure/webapps-deploy@v1
+      with: 
+        app-name: ${{env.APPLICATION_NAME_ROOT}}-api
+        package: ${{env.DOTNET_ROOT}}/myapp 
+       
+    
