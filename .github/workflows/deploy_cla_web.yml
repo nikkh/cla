@@ -24,18 +24,18 @@ jobs:
         dotnet-version: 3.1.101
         
     - name: Build Application
-      run: dotnet build /Client/TodoListClient.csproj --configuration Release
+      run: dotnet build Client/TodoListClient.csproj --configuration Release
 
     - name: Publish Application
       run: |
-        dotnet publish /Client/TodoListClient.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp 
+        dotnet publish Client/TodoListClient.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp 
         
     - name: Login to Azure
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
    
-    - name: 'Deploy Web Application'
+    - name: 'Deploy CLA Web Application'
       uses: azure/webapps-deploy@v1
       with: 
         app-name: ${{envAPPLICATION_NAME_ROOT}}-web
