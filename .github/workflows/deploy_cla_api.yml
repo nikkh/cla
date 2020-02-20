@@ -7,7 +7,7 @@ on:
     paths:
     - TodoListService/**
 
-name: Deploy_Web_Site
+name: Deploy_Api
 env:
    APPLICATION_NAME_ROOT: nhcla
 
