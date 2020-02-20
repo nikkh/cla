@@ -18,7 +18,9 @@ env:
 
   TODO_SCOPE: https://livestocklimitedb2c.onmicrosoft.com/claapi/demo.read
   TODO_BASEADDRESS: https://localhost:44332
-
+  
+  APPLICATION_NAME_ROOT: nhcla
+  
 jobs:
   job1:
     runs-on: ubuntu-latest
