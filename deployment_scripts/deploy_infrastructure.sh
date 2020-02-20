@@ -42,6 +42,7 @@ commonSettings="${commonSettings} AZUREADB2C_SIGNEDOUTCALLBACKPATH=$B2C_SIGNEDOU
 commonSettings="${commonSettings} AZUREADB2C_SIGNUPSIGNINPOLICYID=$B2C_SIGNUPSIGNIN_POLICYID"
 commonSettings="${commonSettings} AZUREADB2C_RESETPASSWORDPOLICYID=$B2C_RESETPASSWORD_POLICYID"
 commonSettings="${commonSettings} AZUREADB2C_EDITPROFILEPOLICYID=$B2C_EDITPROFILE_POLICYID"
+commonSettings="${commonSettings} ASPNETCORE_ENVIRONMENT=Development"
 echo "commonSettings=${commonSettings}"
 
 echo --- "generate app settings for $webAppName"
