@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace TodoListService
 {
+    //
     public class Startup
     {
         public Startup(IConfiguration configuration)
