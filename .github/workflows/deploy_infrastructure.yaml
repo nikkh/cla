@@ -20,6 +20,7 @@ env:
   TODO_BASEADDRESS: https://localhost:44332
   
   APPLICATION_NAME_ROOT: nhcla
+  LOCATION: uksouth
   
 jobs:
   job1:
