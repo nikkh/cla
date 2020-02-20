@@ -16,20 +16,17 @@ echo "B2C_WEB_CLIENTID: $B2C_WEB_CLIENTID"
 echo "B2C_API_CLIENTID: $B2C_API_CLIENTID"
 echo "B2C_WEB_CLIENTSECRET: $B2C_WEB_CLIENTSECRET"
 
-echo ---todo service config
-echo "TODO_SCOPE: $TODO_SCOPE"
-echo "TODO_BASEADDRESS: $TODO_BASEADDRESS"
-
 echo ---Application config
 echo "APPLICATION_NAME_ROOT: $APPLICATION_NAME_ROOT"
 echo "LOCATION: $LOCATION"
+echo "TODO_SCOPE: $TODO_SCOPE"
 
 # Derive as many variables as possible
 webAppName="${APPLICATION_NAME_ROOT}-web"
 apiAppName="${APPLICATION_NAME_ROOT}-api"
 hostingPlanName="${APPLICATION_NAME_ROOT}-plan"
 resourceGroupName="${APPLICATION_NAME_ROOT}-rg"
-apiBaseAddress="${apiAppName}.azurewebsites.net"
+apiBaseAddress="$https://{apiAppName}.azurewebsites.net"
 
 echo ---derived variables
 echo "Resource Group Name: $resourceGroupName"
