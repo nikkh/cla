@@ -26,7 +26,7 @@ webAppName="${APPLICATION_NAME_ROOT}-web"
 apiAppName="${APPLICATION_NAME_ROOT}-api"
 hostingPlanName="${APPLICATION_NAME_ROOT}-plan"
 resourceGroupName="${APPLICATION_NAME_ROOT}-rg"
-apiBaseAddress="$https://{apiAppName}.azurewebsites.net"
+apiBaseAddress='$https://${apiAppName}.azurewebsites.net'
 
 echo ---derived variables
 echo "Resource Group Name: $resourceGroupName"
