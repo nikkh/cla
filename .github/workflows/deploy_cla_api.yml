@@ -35,10 +35,10 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
    
-    - name: 'Deploy Web Application'
+    - name: 'Deploy Api Application'
       uses: azure/webapps-deploy@v1
       with: 
-        app-name: ${{env.APPLICATION_NAME_ROOT}}-web
+        app-name: ${{env.APPLICATION_NAME_ROOT}}-api
         package: ${{env.DOTNET_ROOT}}/myapp 
        
     
