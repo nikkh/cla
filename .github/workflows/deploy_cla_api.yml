@@ -5,7 +5,7 @@
 on:
   push:
     paths:
-    - Client/**
+    - TodoListService/**
 
 name: Deploy_Web_Site
 env:
@@ -24,11 +24,11 @@ jobs:
         dotnet-version: 3.1.101
         
     - name: Build Application
-      run: dotnet build /TodoListService/TodoListService.csproj --configuration Release
+      run: dotnet build TodoListService/TodoListService.csproj --configuration Release
 
     - name: Publish Application
       run: |
-        dotnet publish /TodoListService/TodoListService.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp 
+        dotnet publish TodoListService/TodoListService.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp 
         
     - name: Login to Azure
       uses: azure/login@v1
