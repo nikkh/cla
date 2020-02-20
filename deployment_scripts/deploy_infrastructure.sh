@@ -26,7 +26,7 @@ webAppName="${APPLICATION_NAME_ROOT}-web"
 apiAppName="${APPLICATION_NAME_ROOT}-api"
 hostingPlanName="${APPLICATION_NAME_ROOT}-plan"
 resourceGroupName="${APPLICATION_NAME_ROOT}-rg"
-apiBaseAddress='$https://${apiAppName}.azurewebsites.net'
+apiBaseAddress="https://${apiAppName}.azurewebsites.net"
 
 echo ---derived variables
 echo "Resource Group Name: $resourceGroupName"
@@ -70,3 +70,10 @@ echo --- create an app service to host the api app and update settings
 az webapp create --name $apiAppName --resource-group $resourceGroupName --plan $hostingPlanName
 az webapp config appsettings set -g $resourceGroupName -n $apiAppName --settings $apiAppSettings
 
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo   Important Note!
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo "This script ran with the APPLICATION_NAME_ROOT environment variable set to $APPLICATION_NAME_ROOT."
+echo -e "${RED}PLEASE{NC} ensure that the yaml workflows for deploying your application use the same variable setting!"
