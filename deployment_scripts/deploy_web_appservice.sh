@@ -29,7 +29,7 @@ webAppName="${APPLICATION_NAME_ROOT}-web"
 apiAppName="${APPLICATION_NAME_ROOT}-api"
 hostingPlanName="${APPLICATION_NAME_ROOT}-plan"
 resourceGroupName="${APPLICATION_NAME_ROOT}-rg"
-apiBaseAddress="${apiAppName}-api.azurewebsites.net"
+apiBaseAddress="${apiAppName}.azurewebsites.net"
 
 echo ---derived variables
 echo "Resource Group Name: $resourceGroupName"
@@ -39,12 +39,12 @@ echo "Api App Name: $apiAppName"
 echo "Api Base address: $apiBaseAddress"
 
 echo --- common portion of app settings
-$commonSettings="AZUREADB2C_INSTANCE=$B2C_INSTANCE"
+commonSettings="AZUREADB2C_INSTANCE=$B2C_INSTANCE"
 commonSettings="${commonSettings} AZUREADB2C_DOMAIN=$B2C_DOMAIN"
-commonSettings="${commonSettings} AZUREADB2C_B2CSIGNEDOUTCALLBACKPATH=$B2C_B2C_SIGNEDOUT_CALLBACK_PATH"
-commonSettings="${commonSettings} AZUREADB2C_B2CSIGNUPSIGNINPOLICYID=$B2C_B2C_SIGNUPSIGNIN_POLICYID"
-commonSettings="${commonSettings} AZUREADB2C_B2C_RESETPASSWORDPOLICYID=$B2C_B2C_RESETPASSWORD_POLICYID"
-commonSettings="${commonSettings} AZUREADB2C_B2C_EDITPROFILEPOLICYID=$B2C_B2C_EDITPROFILE_POLICYID"
+commonSettings="${commonSettings} AZUREADB2C_B2CSIGNEDOUTCALLBACKPATH=$B2C_SIGNEDOUT_CALLBACK_PATH"
+commonSettings="${commonSettings} AZUREADB2C_B2CSIGNUPSIGNINPOLICYID=$B2C_SIGNUPSIGNIN_POLICYID"
+commonSettings="${commonSettings} AZUREADB2C_B2C_RESETPASSWORDPOLICYID=$B2C_RESETPASSWORD_POLICYID"
+commonSettings="${commonSettings} AZUREADB2C_B2C_EDITPROFILEPOLICYID=$B2C_EDITPROFILE_POLICYID"
 echo "commonSettings=${commonSettings}"
 
 echo --- "generate app settings for $webAppName"
