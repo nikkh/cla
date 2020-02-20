@@ -38,7 +38,7 @@ jobs:
     - name: 'Deploy CLA Web Application'
       uses: azure/webapps-deploy@v1
       with: 
-        app-name: ${{envAPPLICATION_NAME_ROOT}}-web
+        app-name: ${{env.APPLICATION_NAME_ROOT}}-web
         package: ${{env.DOTNET_ROOT}}/myapp 
        
     
