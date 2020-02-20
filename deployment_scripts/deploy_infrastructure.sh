@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo   Deploy App Service for Web Application
+echo   Create CLA Infrastructure
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo ---B2C config environment variables
 echo "B2C_INSTANCE: $B2C_INSTANCE"
