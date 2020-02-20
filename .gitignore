@@ -3,3 +3,14 @@
 ################################################################################
 
 /.vs
+/Client/bin/Debug/netcoreapp3.1
+/Client/obj
+/external/Microsoft.Identity.Web/obj
+/external/Microsoft.Identity.Web/bin/Debug/netcoreapp3.1
+/external/Microsoft.Identity.Web.Test
+/external/Microsoft.Identity.Web.UI/bin/Debug/netcoreapp3.1
+/external/Microsoft.Identity.Web.UI/obj
+/TodoListService/bin/Debug/netcoreapp3.1
+/TodoListService/obj
+/Client/appsettings.Development.json
+/TodoListService/appsettings.Development.json
