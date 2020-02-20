@@ -17,8 +17,6 @@ env:
   B2C_CALLBACK_PATH: /signin/B2C_1_signupsignin1
 
   TODO_SCOPE: https://livestocklimitedb2c.onmicrosoft.com/claapi/demo.read
-  TODO_BASEADDRESS: https://localhost:44332
-  
   APPLICATION_NAME_ROOT: nhcla
   LOCATION: uksouth
   
@@ -29,11 +27,6 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
                     
-      - name: Setup .NET Core 3.1.101
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 3.1.101
-        
       - name: Login to Azure
         uses: azure/login@v1
         with:
@@ -41,7 +34,6 @@ jobs:
    
       - name: Run Deployment Scripts
         run: |
-                chmod +x deployment_scripts/deploy_web_appservice.sh
-                deployment_scripts/deploy_web_appservice.sh
-                chmod +x deployment_scripts/deploy_api_appservice.sh
-                deployment_scripts/deploy_api_appservice.sh
+                chmod +x deployment_scripts/deploy_infrastructure.sh
+                deployment_scripts/deploy_infrastructure.sh
+                
