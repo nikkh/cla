@@ -35,33 +35,36 @@ echo "Web App Name: $webAppName"
 echo "Api App Name: $apiAppName"
 echo "Api Base address: $apiBaseAddress"
 
+# set local variables
+appServicePlanSku="S1 Standard"
+
 echo --- common portion of app settings
-commonSettings="AZUREADB2C_INSTANCE=$B2C_INSTANCE"
-commonSettings="${commonSettings} AZUREADB2C_DOMAIN=$B2C_DOMAIN"
-commonSettings="${commonSettings} AZUREADB2C_SIGNEDOUTCALLBACKPATH=$B2C_SIGNEDOUT_CALLBACK_PATH"
-commonSettings="${commonSettings} AZUREADB2C_SIGNUPSIGNINPOLICYID=$B2C_SIGNUPSIGNIN_POLICYID"
-commonSettings="${commonSettings} AZUREADB2C_RESETPASSWORDPOLICYID=$B2C_RESETPASSWORD_POLICYID"
-commonSettings="${commonSettings} AZUREADB2C_EDITPROFILEPOLICYID=$B2C_EDITPROFILE_POLICYID"
+commonSettings="AZUREADB2C_INSTANCE=$B2C__INSTANCE"
+commonSettings="${commonSettings} AZUREADB2C__DOMAIN=$B2C_DOMAIN"
+commonSettings="${commonSettings} AZUREADB2C__SIGNEDOUTCALLBACKPATH=$B2C_SIGNEDOUT_CALLBACK_PATH"
+commonSettings="${commonSettings} AZUREADB2C__SIGNUPSIGNINPOLICYID=$B2C_SIGNUPSIGNIN_POLICYID"
+commonSettings="${commonSettings} AZUREADB2C__RESETPASSWORDPOLICYID=$B2C_RESETPASSWORD_POLICYID"
+commonSettings="${commonSettings} AZUREADB2C__EDITPROFILEPOLICYID=$B2C_EDITPROFILE_POLICYID"
 commonSettings="${commonSettings} ASPNETCORE_ENVIRONMENT=Development"
 echo "commonSettings=${commonSettings}"
 
 echo --- "generate app settings for $webAppName"
-webAppSettings="${commonSettings} AZUREADB2C_CLIENTID=$B2C_WEB_CLIENTID"
-webAppSettings="${webAppSettings} AZUREADB2C_CLIENTSECRET=$B2C_WEB_CLIENTSECRET"
-webAppSettings="${webAppSettings} AZUREADB2C_CALLBACKPATH=$B2C_CALLBACK_PATH"
-webAppSettings="${webAppSettings} TODOLIST_TODOLISTSCOPE=$TODO_SCOPE"
-webAppSettings="${webAppSettings} TODOLIST_TODOLISTBASEADDRESS=$apiBaseAddress"
+webAppSettings="${commonSettings} AZUREADB2C__CLIENTID=$B2C_WEB_CLIENTID"
+webAppSettings="${webAppSettings} AZUREADB2C__CLIENTSECRET=$B2C_WEB_CLIENTSECRET"
+webAppSettings="${webAppSettings} AZUREADB2C__CALLBACKPATH=$B2C_CALLBACK_PATH"
+webAppSettings="${webAppSettings} TODOLIST__TODOLISTSCOPE=$TODO_SCOPE"
+webAppSettings="${webAppSettings} TODOLIST__TODOLISTBASEADDRESS=$apiBaseAddress"
 echo "webAppSettings=${webAppSettings}"
 
 echo --- "generate app settings for $apiAppName"
-apiAppSettings="${commonSettings} AZUREADB2C_CLIENTID=$B2C_API_CLIENTID"
+apiAppSettings="${commonSettings} AZUREADB2C__CLIENTID=$B2C_API_CLIENTID"
 echo "apiAppSettings=${apiAppSettings}"
 
 echo --- create resource group
 az group create --location $LOCATION --name $resourceGroupName
 
 echo --- create an app service plan in FREE tier
-az appservice plan create --name $hostingPlanName --resource-group $resourceGroupName --sku FREE
+az appservice plan create --name $hostingPlanName --resource-group $resourceGroupName --sku $appServicePlanSku
 
 echo --- create an app service to host the web app and update settings
 az webapp create --name $webAppName --resource-group $resourceGroupName --plan $hostingPlanName
