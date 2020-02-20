@@ -72,6 +72,7 @@ namespace WebApp_OpenIDConnect_DotNet
             //Configuring appsettings section AzureAdB2C, into IOptions
             services.AddOptions();
             services.Configure<OpenIdConnectOptions>(Configuration.GetSection("AzureAdB2C"));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

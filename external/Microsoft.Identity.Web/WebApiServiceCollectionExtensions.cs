@@ -231,7 +231,7 @@ namespace Microsoft.Identity.Web
             services.AddTokenAcquisition();
             services.AddHttpContextAccessor();
             services.Configure<ConfidentialClientApplicationOptions>(options => configuration.Bind(configSectionName, options));
-            services.Configure<MicrosoftIdentityOptions>(options => configuration.Bind(configSectionName, options));
+           // services.Configure<MicrosoftIdentityOptions>(options => configuration.Bind(configSectionName, options));
 
             services.Configure<JwtBearerOptions>(jwtBearerScheme, options =>
             {
