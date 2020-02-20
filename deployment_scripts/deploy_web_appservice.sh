@@ -48,7 +48,7 @@ commonSettings="${commonSettings} AZUREADB2C_B2C_EDITPROFILEPOLICYID=$B2C_EDITPR
 echo "commonSettings=${commonSettings}"
 
 echo --- "generate app settings for $webAppName"
-$webAppSettings="${commonSettings} AZUREADB2C_CLIENTID=$B2C_WEB_CLIENTID"
+webAppSettings="${commonSettings} AZUREADB2C_CLIENTID=$B2C_WEB_CLIENTID"
 webAppSettings="${webAppSettings} AZUREADB2C_CLIENTSECRET=$B2C_WEB_CLIENTSECRET"
 webAppSettings="${webAppSettings} AZUREADB2C_CALLBACKPATH=$B2C_CALLBACK_PATH"
 webAppSettings="${webAppSettings} TODOLIST_TODOLISTSCOPE=$TODO_SCOPE"
@@ -56,7 +56,7 @@ webAppSettings="${webAppSettings} TODOLIST_TODOLISTBASEADDRESS=$apiBaseAddress"
 echo "webAppSettings=${webAppSettings}"
 
 echo --- "generate app settings for $apiAppName"
-$apiAppSettings="${commonSettings} AZUREADB2C_CLIENTID=$B2C_API_CLIENTID"
+apiAppSettings="${commonSettings} AZUREADB2C_CLIENTID=$B2C_API_CLIENTID"
 echo "apiAppSettings=${apiAppSettings}"
 
 echo --- create resource group
