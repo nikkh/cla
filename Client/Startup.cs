@@ -14,6 +14,7 @@ using TodoListClient.Services;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Identity.Web.UI;
+using Microsoft.IdentityModel.Logging;
 
 namespace WebApp_OpenIDConnect_DotNet
 {
@@ -73,6 +74,8 @@ namespace WebApp_OpenIDConnect_DotNet
             services.AddOptions();
             services.Configure<OpenIdConnectOptions>(Configuration.GetSection("AzureAdB2C"));
 
+            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,6 +84,10 @@ namespace WebApp_OpenIDConnect_DotNet
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                
+                    Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
+                    app.UseDeveloperExceptionPage();
+                
             }
             else
             {
