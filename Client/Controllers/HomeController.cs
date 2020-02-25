@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web;
 using System.Diagnostics;
+using System.Linq;
+using System.Security.Claims;
+using TodoListClient.Models;
 using WebApp_OpenIDConnect_DotNet.Models;
 
 namespace WebApp_OpenIDConnect_DotNet.Controllers
@@ -18,7 +21,17 @@ namespace WebApp_OpenIDConnect_DotNet.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            IdentityModel identityModel = new IdentityModel();
+            identityModel.Test1 = "this is the value for test1";
+            identityModel.Blah = "this is the value for test2";
+           
+            ClaimsPrincipal cp = (ClaimsPrincipal)HttpContext.User;
+            foreach (var item in cp.Claims)
+            {
+                identityModel.Data.Add(item.Type, item.Value);
+            }
+
+            return View(identityModel);
         }
 
         [AllowAnonymous]

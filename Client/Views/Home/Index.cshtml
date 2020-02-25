@@ -1,12 +1,45 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using TodoListClient.Models
+@model IdentityModel;
+
+@{
+   ViewData["Title"] = "Home Page";
 }
 
-    <h1>
-        How to secure a Web API built with ASP.NET Core using the Microsoft identity platform (formerly Azure Active Directory for developers)
-    </h1>
-    <p>
-        This sample shows how to secure a Web API built with ASP.NET Core using the Microsoft identity platform (formerly Azure Active Directory for developers).The client uses OpenID Connect to sign in users. It leverages the ASP.NET Core OpenID Connect middleware
-        and MSAL.NET..
-    </p>
-<img src="https://raw.githubusercontent.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/master/4-WebApp-your-API/ReadmeFiles/topology.png"/>
+<h1>
+    Welcome to CLA!
+</h1>
+<p>
+    This application used Azure AD B2C for authentication.  The directory is configured with different identity providers to enable logon to the CLA application by employees of other organisations. Organisations currently supported are:
+</p>
+<ul style="list-style-type:circle">
+    <li>Microsoft</li>
+    <li>Livestock Information</li>
+</ul>
+<p>Click the signout link above, then click sign in to see the logon page</p>
+<h2>Current Identity</h2>
+
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <td>test1</td>
+        <td>@Model.Test1</td>
+    </tr>
+    <tr>
+        <td>test1</td>
+        <td>@Model.Test1</td>
+    </tr>
+</table>
+<h2>Data</h2>
+<table class="table table-bordered table-striped">
+
+
+    @foreach (var item in Model.Data)
+            {
+            <tr>
+                <td>@item.Key</td>
+                <td>@item.Value</td>
+            </tr>
+        }
+
+   
+</table>
