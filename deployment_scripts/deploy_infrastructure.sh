@@ -36,10 +36,10 @@ echo "Api App Name: $apiAppName"
 echo "Api Base address: $apiBaseAddress"
 
 # set local variables
-appServicePlanSku="S1 Standard"
+appServicePlanSku="S1"
 
 echo --- common portion of app settings
-commonSettings="AZUREADB2C_INSTANCE=$B2C__INSTANCE"
+commonSettings="AZUREADB2C_INSTANCE=$B2C_INSTANCE"
 commonSettings="${commonSettings} AZUREADB2C__DOMAIN=$B2C_DOMAIN"
 commonSettings="${commonSettings} AZUREADB2C__SIGNEDOUTCALLBACKPATH=$B2C_SIGNEDOUT_CALLBACK_PATH"
 commonSettings="${commonSettings} AZUREADB2C__SIGNUPSIGNINPOLICYID=$B2C_SIGNUPSIGNIN_POLICYID"
