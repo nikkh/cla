@@ -14,3 +14,9 @@
 /TodoListService/obj
 /Client/appsettings.Development.json
 /TodoListService/appsettings.Development.json
+/Client/bin/Release/netcoreapp3.1
+/Client/Properties/PublishProfiles
+/external/Microsoft.Identity.Web/bin/Release/netcoreapp3.1
+/external/Microsoft.Identity.Web.UI/bin/Release/netcoreapp3.1
+/TodoListService/bin/Release/netcoreapp3.1
+/TodoListService/Properties/PublishProfiles
