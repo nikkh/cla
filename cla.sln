@@ -4,6 +4,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DDAC3758-9CAE-4790-84B1-5B6258BAE44E}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\deploy_cla_api.yml = .github\workflows\deploy_cla_api.yml
+		.github\workflows\deploy_cla_web.yml = .github\workflows\deploy_cla_web.yml
+		deployment_scripts\deploy_infrastructure.sh = deployment_scripts\deploy_infrastructure.sh
+		.github\workflows\deploy_infrastructure.yaml = .github\workflows\deploy_infrastructure.yaml
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoListService", "TodoListService\TodoListService.csproj", "{A55C5542-9C7B-4A34-932C-05DAF36CED0C}"
 EndProject

@@ -9,7 +9,7 @@ on:
 
 name: Deploy_Api
 env:
-   APPLICATION_NAME_ROOT: nhcla
+   APPLICATION_NAME_ROOT: llicla
 
 jobs:
   build_and_deploy:
@@ -39,6 +39,6 @@ jobs:
       uses: azure/webapps-deploy@v1
       with: 
         app-name: ${{env.APPLICATION_NAME_ROOT}}-api
-        package: ${{env.DOTNET_ROOT}}/myapp 
+        package: ${{env.DOTNET_ROOT}}/myapp
        
     
