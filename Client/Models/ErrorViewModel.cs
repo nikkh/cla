@@ -1,4 +1,4 @@
-namespace WebApp_OpenIDConnect_DotNet.Models
+namespace TodoListClient.Models
 {
     public class ErrorViewModel
     {

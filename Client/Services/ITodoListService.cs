@@ -41,5 +41,7 @@ namespace TodoListClient.Services
         Task<Todo> AddAsync(Todo todo);
 
         Task<Todo> EditAsync(Todo todo);
+
+        Task<Dictionary<string, string>> GetClaimsAsync();
     }
 }

@@ -5,9 +5,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Security.Claims;
 using TodoListClient.Models;
-using WebApp_OpenIDConnect_DotNet.Models;
 
-namespace WebApp_OpenIDConnect_DotNet.Controllers
+namespace TodoListClient.Controllers
 {
     [AllowAnonymous]
     public class HomeController : Controller

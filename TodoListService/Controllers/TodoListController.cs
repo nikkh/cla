@@ -29,6 +29,7 @@ using Microsoft.Identity.Web;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using TodoListService.Models;
 
 namespace TodoListService.Controllers
@@ -86,10 +87,9 @@ namespace TodoListService.Controllers
             {
                 return Unauthorized();
             }
-
-
-            
         }
+
+     
 
         // GET: api/values
         [HttpGet("{id}", Name = "Get")]

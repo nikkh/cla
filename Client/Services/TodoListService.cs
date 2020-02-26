@@ -115,6 +115,22 @@ namespace TodoListClient.Services
             throw new HttpRequestException($"Invalid status code in the HttpResponseMessage: {response.StatusCode}.");
         }
 
+        public async Task<Dictionary<string, string>> GetClaimsAsync()
+        {
+            await PrepareAuthenticatedClient();
+
+            var response = await _httpClient.GetAsync($"{ _TodoListBaseAddress}/api/claims");
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var claims = JsonConvert.DeserializeObject <Dictionary<string, string>> (content);
+
+                return claims;
+            }
+
+            throw new HttpRequestException($"Invalid status code in the HttpResponseMessage: {response.StatusCode}.");
+        }
+
         private async Task PrepareAuthenticatedClient()
         {
             var accessToken = await _tokenAcquisition.GetAccessTokenForUserAsync(new[] { _TodoListScope });

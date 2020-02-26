@@ -1,0 +1,25 @@
+﻿@model Dictionary<string, string>
+
+@{
+   ViewData["Title"] = "Scopes";
+}
+
+    <h1>
+        Enriched Claims @Model.Count
+    </h1>
+<p>Here, the client application (in this case, this website) obtains additional consent.  this is the scopes that are requuired to call the TodoList Service</p>
+<p>The AAD application that represents the website is authorised to the ToDo list API (scope=demo.write).  The existing claims as shown on the 'Claims' tab do not include this scope.  In this example you probably needed to re-authenticate, after which the scope(s) would be added to your claims. You wouldn't need to authenticate again.  this is an example of step-up authentication.</p>
+<table class="table table-bordered table-striped">
+
+
+    @foreach (var item in Model)
+    {
+            <tr>
+                <td>@item.Key</td>
+                <td>@item.Value</td>
+            </tr>
+    }
+
+   
+</table>
+

@@ -15,8 +15,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Identity.Web.UI;
 using Microsoft.IdentityModel.Logging;
+using myConstants = TodoListClient.Infrastructure.Constants;
 
-namespace WebApp_OpenIDConnect_DotNet
+namespace TodoListClient
 {
     public class Startup
     {
@@ -59,7 +60,7 @@ namespace WebApp_OpenIDConnect_DotNet
 
             // Add APIs
             services.AddTodoListService(Configuration);
-
+           
             services.AddControllersWithViews(options =>
             {
                 var policy = new AuthorizationPolicyBuilder()
