@@ -1,48 +1,20 @@
-﻿@using TodoListClient.Models
-@model IdentityModel;
-
-@{
+﻿@{
    ViewData["Title"] = "Home Page";
 }
 
 <h1>
     Welcome to CLA!
 </h1>
+<p>The acronym CLA will mean something to the people that need to know, but to most people it's just a name.</p>
+<p>This application explores some of the possibilities for authentication and authorization using Azure Active Directory (AAD) B2C</p>
 <p>
-    This application used Azure AD B2C for authentication.  The directory is configured with different identity providers to enable logon to the CLA application by employees of other organisations. Organisations currently supported are:
+    The directory is configured with different identity providers to enable logon to the CLA application by employees of other organisations. Organisations currently supported are:
 </p>
 <ul style="list-style-type:circle">
     <li>Microsoft</li>
     <li>Livestock Information</li>
 </ul>
-<p>Click the signout link above, then click sign in to see the logon page</p>
-<h2>Current Identity</h2>
-
-
-<table class="table table-bordered table-striped">
-    <tr>
-        <td>test1</td>
-        <td>@Model.Test1</td>
-    </tr>
-    <tr>
-        <td>test1</td>
-        <td>@Model.Test1</td>
-    </tr>
-</table>
-<h2>Data</h2>
-<table class="table table-bordered table-striped">
-
-
-    @foreach (var item in Model.Data)
-            {
-            <tr>
-                <td>@item.Key</td>
-                <td>@item.Value</td>
-            </tr>
-        }
-
-   
-</table>
+<p>This page allows anonymous access, but if you click any of the links in the menu above, you'll be asked to authenticate.  This will show you the default sign-in experience configured for this AAD B2C instance</p>
 
 <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/views?view=aspnetcore-3.0&tabs=aspnetcore2x">Include View based Authorization here</a>
 

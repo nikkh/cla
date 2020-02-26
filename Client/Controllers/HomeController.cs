@@ -9,32 +9,21 @@ using WebApp_OpenIDConnect_DotNet.Models;
 
 namespace WebApp_OpenIDConnect_DotNet.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     public class HomeController : Controller
     {
-        private readonly ITokenAcquisition tokenAcquisition;
-
-        public HomeController(ITokenAcquisition tokenAcquisition)
+        
+        public HomeController()
         {
-            this.tokenAcquisition = tokenAcquisition;
+           
         }
 
         public IActionResult Index()
         {
-            IdentityModel identityModel = new IdentityModel();
-            identityModel.Test1 = "this is the value for test1";
-            identityModel.Blah = "this is the value for test2";
-           
-            ClaimsPrincipal cp = (ClaimsPrincipal)HttpContext.User;
-            foreach (var item in cp.Claims)
-            {
-                identityModel.Data.Add(item.Type, item.Value);
-            }
-
-            return View(identityModel);
+            return View();
         }
 
-        [AllowAnonymous]
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

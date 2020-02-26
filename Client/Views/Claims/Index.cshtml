@@ -1,0 +1,25 @@
+﻿@using TodoListClient.Models
+@model IdentityModel;
+
+@{
+   ViewData["Title"] = "Current Claims";
+}
+
+<h1>
+    Your current claims
+</h1>
+
+<table class="table table-bordered table-striped">
+
+
+    @foreach (var item in Model.Data)
+            {
+            <tr>
+                <td>@item.Key</td>
+                <td>@item.Value</td>
+            </tr>
+        }
+
+   
+</table>
+
